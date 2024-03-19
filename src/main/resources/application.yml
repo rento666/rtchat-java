@@ -2,19 +2,18 @@ custom: # 自定义的http启动端口，后续会重定向到https
   http-port: 13788
 server:
   ip: 127.0.0.1
-#  ip: 101.42.11.155
   port: 13799
   ssl:
     enabled: true
     key-store: classpath:ssl/rtcode.asia.jks
-    key-store-password: 1fz85fcr68ikb9
+    key-store-password: 你的jks密钥
     key-store-type: JKS
 
 rtchat:
   # 名称
   name: 蝶语
   # 版本
-  version: 0.0.1
+  version: 1.0.2
   # 版权年份
   copyrightYear: 2023-2024
   # 文件路径 示例（ Windows配置E:/pictures/rtchat/，Linux配置 /home/rtchat/）
@@ -25,8 +24,8 @@ rtchat:
   email:
     host: smtp.office365.com
     port: 587
-    username: putongruwo@outlook.com
-    password: Wrunt2002
+    username: 你的账户
+    password: 你的密码
   im:
     port: 9988
 
@@ -39,11 +38,9 @@ user:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3307/rtchat?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
-    url: jdbc:mysql://101.42.11.155:3307/rtchat?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3307/rtchat?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     username: root
-#    password: 123456
-    password: qpqpalnzn53bjfbgfnf4353
+    password: 你的MySQL密码
   servlet:
     multipart:
       # 单个文件大小
@@ -51,18 +48,17 @@ spring:
       # 总上传文件大小
       max-request-size: 10240MB
   rabbitmq:
-#    host: localhost
-    host: 101.42.11.155
+    host: localhost
     port: 5672
-    username: guest
+    username: guest（默认的）
     password: guest
     listener:
       simple:
         concurrency: 10
         max-concurrency: 20
   redis:
-    host: 101.42.11.155
-    port: 6380
+    host: localhost
+    port: 6379
 
 mybatis-plus:
 #  configuration:
@@ -73,12 +69,11 @@ mybatis-plus:
 mongo-plus:
   data:
     mongodb:
-      host: 101.42.11.155
-#      host: localhost
+      host: localhost
       port: 27017
       database: rtchat
       username: admin
-      password: qpqpalnzn53bjfbgfnf4353
+      password: 你的mongodb密码
       connect-timeout-m-s: 50000
       wait-queue-timeout-m-s: 50000
       # 开启事务 @MongoTransactional
