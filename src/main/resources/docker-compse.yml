@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  rt-chat:
+    image: rt-chat:v1
+    ports:
+      - "13799:13799"
+      - "9988:9988"
+    # 这里可以添加其他配置，如环境变量、挂载卷等
+
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    # 这里可以添加其他配置，如环境变量、挂载卷等
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    # 这里可以添加其他配置，如环境变量、挂载卷等
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    # 这里可以添加其他配置，如挂载卷等
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    # 这里可以添加其他配置，如挂载卷等
